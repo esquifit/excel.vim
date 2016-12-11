@@ -130,7 +130,7 @@ endfunction
 
 
 function! s:com_get_lines(file)
-    let file = substitute(a:file, '/', '\', 'g')
+    let file = substitute(fnamemodify(a:file,":p"), '/', '\', 'g')
     let csvfile = substitute(tempname(), '/', '\', 'g')
     let output = s:system(['cscript', s:WSH_SCRIPT, 'csvout', file, csvfile])
     if v:shell_error
