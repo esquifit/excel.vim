@@ -134,7 +134,7 @@ function! s:com_get_lines(file)
     let csvfile = substitute(tempname(), '/', '\', 'g')
     let output = s:system(['cscript', s:WSH_SCRIPT, 'csvout', file, csvfile])
     if v:shell_error
-        throw 'excel: Excel could not export csv file: ' . iconv(output, 'cp932', &enc)
+        throw 'excel: Excel could not export csv file: ' . output
     endif
     let csvlines = readfile(csvfile)
     let lines = []
