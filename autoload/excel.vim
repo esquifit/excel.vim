@@ -74,7 +74,7 @@ function! s:map_move(cmd)
 endfunction
 
 function! s:get_cell_pos()
-    let x = len(substitute(getline('.')[: col('.') - 1], '[^\t]', '', 'g'))
+    let x = (col('.') == 1 ? 0 : len(substitute(getline('.')[: col('.') - 2], '[^\t]', '', 'g')) )
     let y = line('.') - 1
     return [x, y]
 endfunction
